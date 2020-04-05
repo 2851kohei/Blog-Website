@@ -1,0 +1,20 @@
+<%# including header.ejs %>
+<%- include("partials/header"); -%>
+<h1> Home</h1>
+
+<!-- in order to get the value of the const homeStartingContent in app.js -->
+<p> <%= StartingContent %> </p>
+
+<%# substituting for roop, we use forEach method %>
+<% Posts.forEach(function (post){ %>
+
+  <%# post.key: Javascript variable %>
+  <h1> <%= post.title %> </h1>
+
+  <!-- trancate string -->
+  <p> <%= post.content.substring(0,100)%> ... <a href="/posts/<%= post.title %>"> Read More</a> </p>
+
+
+<% }); %>
+
+<%- include("partials/footer") -%>
